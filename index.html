@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareTrack | Healthcare Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h2 class="logo">CareTrack</h2>
+
+            <nav>
+                <a href="#dashboard" class="active">Dashboard</a>
+                <a href="#patients">Patients</a>
+                <a href="#medical-history">Medical History</a>
+                <a href="#medications">Medications</a>
+                <a href="#test-reports">Test Reports</a>
+                <a href="#vital-signs">Vital Signs</a>
+                <a href="#care-instructions">Care Instructions</a>
+            </nav>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+
+            <!-- 1. DASHBOARD PAGE -->
+            <section id="dashboard" class="content-section">
+
+                <header class="topbar">
+                    <h1>Dashboard</h1>
+
+                    <div class="user-profile">
+                        <span>Welcome, Doctor</span>
+                    </div>
+                </header>
+
+                <section class="welcome">
+                    <h2>Good Morning!</h2>
+
+                    <p>
+                        Welcome to your CareTrack healthcare dashboard.
+                    </p>
+                </section>
+
+                <!-- Statistics Cards -->
+                <section class="stats">
+
+                    <div class="card">
+                        <h3>Total Patients</h3>
+                        <p>120</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Appointments</h3>
+                        <p>18</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Medical Reports</h3>
+                        <p>45</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Active Medications</h3>
+                        <p>32</p>
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- 2. PATIENTS PAGE -->
+            <section id="patients" class="content-section" hidden>
+
+                <header class="topbar">
+                    <h1>Patients</h1>
+
+                    <div class="user-profile">
+                        <span>Patient Management</span>
+                    </div>
+                </header>
+
+                <!-- Recent Patients -->
+                <section class="patient-section">
+
+                    <h2>Recent Patients</h2>
+
+                    <div class="search-box">
+                        <input
+                            type="text"
+                            id="patientSearch"
+                            placeholder="Search by patient name, ID, or condition..."
+                        >
+                    </div>
+
+                    <table id="patientTable">
+
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Patient ID</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Condition</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="patientTableBody">
+
+                            <tr>
+                                <td>Rahim Ahmed</td>
+                                <td>PT001</td>
+                                <td>52</td>
+                                <td>Male</td>
+                                <td>Hypertension</td>
+                                <td>Active</td>
+                            </tr>
+
+                            <tr>
+                                <td>Fatima Akter</td>
+                                <td>PT002</td>
+                                <td>45</td>
+                                <td>Female</td>
+                                <td>Diabetes</td>
+                                <td>Active</td>
+                            </tr>
+
+                            <tr>
+                                <td>Karim Hasan</td>
+                                <td>PT003</td>
+                                <td>60</td>
+                                <td>Male</td>
+                                <td>Stroke Recovery</td>
+                                <td>Monitoring</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+
+                <!-- Patient Registration -->
+                <section class="registration-section">
+
+                    <h2>Register New Patient</h2>
+
+                    <p class="form-description">
+                        Enter the patient's information below.
+                    </p>
+
+                    <form id="patientForm">
+
+                        <div class="form-group">
+                            <label for="patientName">Patient Name</label>
+
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientId">Patient ID</label>
+
+                            <input
+                                type="text"
+                                id="patientId"
+                                placeholder="Example: PT004"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientAge">Age</label>
+
+                            <input
+                                type="number"
+                                id="patientAge"
+                                placeholder="Enter age"
+                                min="0"
+                                max="120"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientGender">Gender</label>
+
+                            <select id="patientGender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientCondition">
+                                Medical Condition
+                            </label>
+
+                            <input
+                                type="text"
+                                id="patientCondition"
+                                placeholder="Enter medical condition"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patientStatus">Status</label>
+
+                            <select id="patientStatus" required>
+                                <option value="Active">Active</option>
+                                <option value="Monitoring">Monitoring</option>
+                                <option value="Recovered">Recovered</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="register-btn">
+                            Register Patient
+                        </button>
+
+                    </form>
+
+                    <p id="formMessage"></p>
+
+                </section>
+
+            </section>
+
+
+            <!-- 3. MEDICAL HISTORY PAGE -->
+            
+            
+<!-- MEDICAL HISTORY PAGE -->
+    <section id="medical-history" class="content-section" hidden>
+
+        <header class="topbar">
+            <h1>Medical History</h1>
+        </header>
+
+        <section class="registration-section">
+
+            <h2>Add Medical History</h2>
+
+            <p class="form-description">
+                Enter a patient's diagnosis and medical notes.
+            </p>
+
+            <form id="historyForm">
+
+                <div class="form-group">
+                    <label for="historyPatient">Select Patient</label>
+
+                    <select id="historyPatient" required>
+                        <option value="">Select Patient</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="historyDiagnosis">Diagnosis</label>
+
+                    <input
+                        type="text"
+                        id="historyDiagnosis"
+                        placeholder="Example: Diabetes"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="historyDate">Diagnosis Date</label>
+
+                    <input
+                        type="date"
+                        id="historyDate"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="historyNotes">Medical Notes</label>
+
+                    <textarea
+                        id="historyNotes"
+                        placeholder="Enter medical notes..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="register-btn">
+                    Add Medical Record
+                </button>
+
+            </form>
+
+            <p id="historyMessage"></p>
+
+        </section>
+
+        <section class="patient-section">
+
+            <h2>Medical History Records</h2>
+
+            <table id="historyTable">
+
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Diagnosis</th>
+                        <th>Date</th>
+                        <th>Medical Notes</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyTableBody">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </section>
+
+
+
+            
+            <!-- MEDICATIONS PAGE -->
+            <section id="medications" class="content-section" hidden>
+
+                <header class="topbar">
+                    <h1>Medications</h1>
+                </header>
+
+                <section class="registration-section">
+
+                    <h2>Add Patient Medication</h2>
+
+                    <p class="form-description">
+                        Enter the medication information below.
+                    </p>
+
+                    <form id="medicationForm">
+
+                        <div class="form-group">
+                            <label for="medPatient">Select Patient</label>
+
+                            <select id="medPatient" required>
+                                <option value="">Select Patient</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medName">Medication Name</label>
+
+                            <input
+                                type="text"
+                                id="medName"
+                                placeholder="Example: Metformin"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medDosage">Dosage</label>
+
+                            <input
+                                type="text"
+                                id="medDosage"
+                                placeholder="Example: 500 mg"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medFrequency">Frequency</label>
+
+                            <select id="medFrequency" required>
+                                <option value="">Select Frequency</option>
+                                <option value="Once daily">Once daily</option>
+                                <option value="Twice daily">Twice daily</option>
+                                <option value="Three times daily">Three times daily</option>
+                                <option value="As prescribed">As prescribed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medStartDate">Start Date</label>
+
+                            <input
+                                type="date"
+                                id="medStartDate"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit" class="register-btn">
+                            Add Medication
+                        </button>
+
+                    </form>
+
+                    <p id="medicationMessage"></p>
+
+                </section>
+
+                <section class="patient-section">
+
+                    <h2>Medication Records</h2>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Medication</th>
+                                <th>Dosage</th>
+                                <th>Frequency</th>
+                                <th>Start Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="medicationTableBody">
+                        </tbody>
+                    </table>
+
+                </section>
+
+            </section>
+
+
+            <!-- 6. VITAL SIGNS PAGE -->
+            <section id="vital-signs" class="content-section" hidden>
+
+                <header class="topbar">
+                    <h1>Vital Signs</h1>
+                </header>
+
+                <section class="patient-section">
+                    <h2>Patient Health Monitoring</h2>
+                    <p>Monitor blood pressure, temperature, pulse, and oxygen levels.</p>
+                </section>
+
+            </section>
+
+
+            <!-- 7. CARE INSTRUCTIONS PAGE -->
+            <section id="care-instructions" class="content-section" hidden>
+
+                <header class="topbar">
+                    <h1>Care Instructions</h1>
+                </header>
+
+                <section class="patient-section">
+                    <h2>Patient Care Plans</h2>
+                    <p>View and manage patient care instructions and treatment plans.</p>
+                </section>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT CONNECTION -->
+    <script src="script.js"></script>
+
+</body>
+</html>
